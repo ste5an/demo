@@ -12,12 +12,12 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Repository("postgres")
-public class PersonDataAccessService implements PersonDao{
+public class PersonDaoImpl implements PersonDao{
 
     private final JdbcTemplate jdbcTemplate;
 
     @Autowired
-    public PersonDataAccessService(JdbcTemplate jdbcTemplate) {
+    public PersonDaoImpl(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
@@ -68,6 +68,6 @@ public class PersonDataAccessService implements PersonDao{
     @Override
     public int updatePersonById(UUID id, Person newPerson) {
         String sql = "UPDATE person SET name = ? WHERE id = ?";
-        return jdbcTemplate.update(sql, newPerson, id);
+        return jdbcTemplate.update(sql, newPerson.getName(), id);
     }
 }
