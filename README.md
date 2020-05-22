@@ -6,3 +6,5 @@ name VARCHAR(100) NOT NULL
 );
 
 3. CREATE EXTENSION 'uuid-ossp';
+
+Project to understand Spring Boot 
